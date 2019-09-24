@@ -101,19 +101,6 @@ public class Activity {
 
     public void readActivityList(){
 
-        Activity activity1 = new Activity("Fodbold", 200, 20, "Spille_Fodboold", false);
-        Activity activity2 = new Activity("Basketbold", 200, 20, "Spille_Basket", false);
-        Activity activity3 = new Activity("Håndbold", 200, 20, "Spille_håndbold", false);
-        Activity activity4 = new Activity("Esport", 200, 20, "Spille_pc", false);
-        Activity activity5 = new Activity("Cricket", 200, 20, "spille_cricket", false);
-
-
-        activityList.add(activity1);
-        activityList.add(activity2);
-        activityList.add(activity3);
-        activityList.add(activity4);
-        activityList.add(activity5);
-
         System.out.println("Loading activity list");
         for (Activity s: activityList){
             System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "Available: " + s.isBookedOrNot());
@@ -146,7 +133,7 @@ public class Activity {
                 switch (sc.nextInt()){
                     case 1:
                         System.out.println("Type the new name");
-                        activity.setActivityName(sc.nextLine());
+                        activity.setActivityName(sc.next());
                         break;
                     case 2:
                         System.out.println("Type the new price");
@@ -158,7 +145,7 @@ public class Activity {
                         break;
                     case 4:
                         System.out.println("Type the new description");
-                        activity.setDescription(sc.nextLine());
+                        activity.setDescription(sc.next());
                         break;
                 }
                 System.out.println("The change is completed");
