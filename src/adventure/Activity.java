@@ -21,11 +21,12 @@ public class Activity {
     public Activity() {
     }
 
-    public Activity(String activityName, int price, int requiredAge, String description) {
+    public Activity(String activityName, int price, int requiredAge, String description, boolean bookedOrNot) {
         this.activityName = activityName;
         this.price = price;
         this.requiredAge = requiredAge;
         this.description = description;
+        this.bookedOrNot = bookedOrNot;
     }
 
     public String getActivityName() {
@@ -87,14 +88,21 @@ public class Activity {
         requiredAge = sc.nextInt();
         System.out.println("Write a short description");
         description = sc.next();
-        activityList.add(new Activity(activityName, price, requiredAge, description));
+        bookedOrNot = false;
+        if (bookedOrNot == false){
+            System.out.println("Not booked");
+        }
+        else {
+            System.out.println("Booked");
+        }
+        activityList.add(new Activity(activityName, price, requiredAge, description, bookedOrNot));
 
     }
 
     public void readActivityList(){
         System.out.println("Loading activity list");
         for (Activity s: activityList){
-            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription());
+            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "Available: " + s.isBookedOrNot());
         }
 
     }
@@ -143,6 +151,32 @@ public class Activity {
         }
         System.out.println("Couldn't find an activity with the name: " + activityName);
         return false;
+    }
+
+    public void bookActivity(){
+
+        description = null;
+
+        readActivityList();
+
+        System.out.println("Which activity do you wish to book?");
+
+        String answer = sc.next();
+
+        for (Activity a: activityList){
+            if (a.getActivityName().equals(answer)){
+                System.out.println("You have chosen to book " + a.getActivityName());
+                a.setBookedOrNot(true);
+            }
+
+        }
+        readActivityList();
+
+
+
+
+
+
     }
 
 
