@@ -11,6 +11,16 @@ class ActivityTest {
 
     @Test
     void addActivty() {
-        activity.addActivty();
+        activity.addActivity();
+    }
+
+    @Test
+    void deleteActivity() {
+        assertFalse(activity.deleteActivity("Bowling"));
+    }
+
+    @Test
+    void editActivity() {
+        assertTrue(activity.editActivity());
     }
 }

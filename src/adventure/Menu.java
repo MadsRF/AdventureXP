@@ -14,7 +14,7 @@ public class Menu {
 
         switch(scan.nextInt()){
             case 1:
-                printList(activity.getActivityList());
+                //printList(activity.getActivityList());
                 break;
 
             case 2:

@@ -93,4 +93,23 @@ public class Activity {
 
     }
 
+    public boolean deleteActivity(String activityName){
+
+        for (Activity activity : activityList){
+            if(activity.getActivityName().equals(activityName)){
+                activityList.remove(activity);
+                System.out.println("The activity: " + activity.getActivityName() + " was deleted");
+                return true;
+            }
+        }
+        System.out.println("Couldn't find an activity with the name: " + activityName);
+        return false;
+    }
+
+    public boolean editActivity(){
+
+        return false;
+    }
+
+
 }
