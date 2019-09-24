@@ -6,22 +6,30 @@ import java.util.Scanner;
 
 public class Employee {
 
-    String activityName;
     String employeeName;
-    boolean bookedOrNot;
-    List<String> activtyList = new ArrayList<String>();
-    Scanner sc = new Scanner(System.in);
+    String employeeNumber;
 
-    public void addActivty(){
-        System.out.println("You have chosen to add an activity\nType in the name of the new activity");
-        activityName = sc.nextLine();
-        System.out.println("You have created " + activityName);
-        activtyList.add(activityName);
-
-
+    public Employee() {
     }
 
+    public Employee(String employeeName, String employeeNumber) {
+        this.employeeName = employeeName;
+        this.employeeNumber = employeeNumber;
+    }
 
+    public String getEmployeeName() {
+        return employeeName;
+    }
 
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+    }
 
+    public String getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public void setEmployeeNumber(String employeeNumber) {
+        this.employeeNumber = employeeNumber;
+    }
 }
