@@ -14,8 +14,8 @@ public class Activity {
     boolean bookedOrNot;
 
 
-    List<Activity> activityList = new ArrayList<>();
-    Scanner sc = new Scanner(System.in);
+    private  static List<Activity> activityList = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
 
 
     public Activity() {
@@ -104,11 +104,11 @@ public class Activity {
         for (Activity s: activityList){
             System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "Available: " + s.isBookedOrNot());
         }
-
     }
 
-    public boolean deleteActivity(String activityName){
-
+    public boolean deleteActivity(){
+        System.out.println("Type the activity name");
+        String activityName = sc.nextLine();
         for (Activity activity : activityList){
             if(activity.getActivityName().equals(activityName)){
                 activityList.remove(activity);
@@ -121,7 +121,37 @@ public class Activity {
     }
 
     public boolean editActivity(){
-
+        System.out.println("Type the activity name");
+        String activityName = sc.nextLine();
+        for (Activity activity: activityList){
+            if(activity.getActivityName().equals(activityName)){
+                System.out.println("Press 1 - Edit name: " + activity.getActivityName());
+                System.out.println("Press 2 - Edit price: " + activity.getPrice());
+                System.out.println("Press 3 - Edit minimum age: " + activity.getRequiredAge());
+                System.out.println("Press 4 - Edit description" + activity.getDescription());
+                switch (sc.nextInt()){
+                    case 1:
+                        System.out.println("Type the new name");
+                        activity.setActivityName(sc.nextLine());
+                        break;
+                    case 2:
+                        System.out.println("Type the new price");
+                        activity.setPrice(sc.nextInt());
+                        break;
+                    case 3:
+                        System.out.println("Type the new minimum age");
+                        activity.setRequiredAge(sc.nextInt());
+                        break;
+                    case 4:
+                        System.out.println("Type the new description");
+                        activity.setDescription(sc.nextLine());
+                        break;
+                }
+                System.out.println("The change is completed");
+                return true;
+            }
+        }
+        System.out.println("Couldn't find an activity with the name: " + activityName);
         return false;
     }
 
@@ -143,11 +173,6 @@ public class Activity {
 
         }
         readActivityList();
-
-
-
-
-
 
     }
 

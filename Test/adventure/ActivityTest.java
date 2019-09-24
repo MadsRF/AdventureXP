@@ -21,6 +21,6 @@ class ActivityTest {
 
     @Test
     void editActivity() {
-        assertTrue(activity.editActivity());
+        assertFalse(activity.editActivity("bowling"));
     }
 }
