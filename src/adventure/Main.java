@@ -7,7 +7,8 @@ public class Main {
 
     Menu menu = new Menu();
 
-    menu.mainMenu();
+    while(menu.mainMenu()){
+    }
 
     }
 }
