@@ -19,7 +19,7 @@ public class Menu {
             case 0:
                 return false;
             case 1:
-                printList(activity.getActivityList());
+                activity.readActivityList();
                 break;
 
             case 2:

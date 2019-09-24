@@ -14,8 +14,8 @@ public class Activity {
     boolean bookedOrNot;
 
 
-    List<Activity> activityList = new ArrayList<>();
-    Scanner sc = new Scanner(System.in);
+    private  static List<Activity> activityList = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
 
 
     public Activity() {
@@ -104,7 +104,6 @@ public class Activity {
         for (Activity s: activityList){
             System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "Available: " + s.isBookedOrNot());
         }
-
     }
 
     public boolean deleteActivity(){
@@ -174,11 +173,6 @@ public class Activity {
 
         }
         readActivityList();
-
-
-
-
-
 
     }
 
