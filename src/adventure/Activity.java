@@ -107,7 +107,6 @@ public class Activity {
     }
 
     public boolean deleteActivity(String activityName){
-
         for (Activity activity : activityList){
             if(activity.getActivityName().equals(activityName)){
                 activityList.remove(activity);
@@ -119,8 +118,37 @@ public class Activity {
         return false;
     }
 
-    public boolean editActivity(){
-
+    public boolean editActivity(String activityName){
+        Scanner scan = new Scanner(System.in);
+        for (Activity activity: activityList){
+            if(activity.getActivityName().equals(activityName)){
+                System.out.println("Press 1 - Edit name: " + activity.getActivityName());
+                System.out.println("Press 2 - Edit price: " + activity.getPrice());
+                System.out.println("Press 3 - Edit minimum age: " + activity.getRequiredAge());
+                System.out.println("Press 4 - Edit description" + activity.getDescription());
+                switch (scan.nextInt()){
+                    case 1:
+                        System.out.println("Type the new name");
+                        activity.setActivityName(scan.nextLine());
+                        break;
+                    case 2:
+                        System.out.println("Type the new price");
+                        activity.setPrice(scan.nextInt());
+                        break;
+                    case 3:
+                        System.out.println("Type the new minimum age");
+                        activity.setRequiredAge(scan.nextInt());
+                        break;
+                    case 4:
+                        System.out.println("Type the new description");
+                        activity.setDescription(scan.nextLine());
+                        break;
+                }
+                System.out.println("The change is completed");
+                return true;
+            }
+        }
+        System.out.println("Couldn't find an activity with the name: " + activityName);
         return false;
     }
 
