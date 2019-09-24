@@ -13,19 +13,19 @@ public class Activity {
 
     boolean bookedOrNot;
 
-    List<String> activityList = new ArrayList<String>();
+
+    List<Activity> activityList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
 
     public Activity() {
     }
 
-    public Activity(String activityName, int price, int requiredAge, String description, boolean bookedOrNot) {
+    public Activity(String activityName, int price, int requiredAge, String description) {
         this.activityName = activityName;
         this.price = price;
         this.requiredAge = requiredAge;
         this.description = description;
-        this.bookedOrNot = bookedOrNot;
     }
 
     public String getActivityName() {
@@ -68,29 +68,34 @@ public class Activity {
         this.bookedOrNot = bookedOrNot;
     }
 
-    public List<String> getActivityList() {
+    public List<Activity> getActivityList() {
         return activityList;
     }
 
-    public void setActivityList(List<String> activityList) {
+    public void setActivityList(List<Activity> activityList) {
         this.activityList = activityList;
     }
 
     public void addActivity(){
+
         System.out.println("You have chosen to add an activity\nType in the name of the new activity");
-        activityName = sc.next();
-        System.out.println("You have created " + activityName);
-        activityList.add(activityName);
+        activityName = sc.nextLine();
+        System.out.println("You have created " + activityName + "\n");
+        System.out.println("Choose a price:");
+        price = sc.nextInt();
+        System.out.println("Choose a required age: ");
+        requiredAge = sc.nextInt();
+        System.out.println("Write a short description");
+        description = sc.next();
+        activityList.add(new Activity(activityName, price, requiredAge, description));
 
     }
 
     public void readActivityList(){
         System.out.println("Loading activity list");
-        for (String s: activityList){
-            System.out.println(s);
+        for (Activity s: activityList){
+            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription());
         }
 
-
     }
-
 }
