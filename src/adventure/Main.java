@@ -8,5 +8,8 @@ public class Main {
         System.out.println("helloo");
         System.out.println("hellofgg");
         System.out.println("hellofgg");
+        System.out.println("alper");
+        System.out.println("hellofgg");
+        System.out.println("hellofgg");
     }
 }
