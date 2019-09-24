@@ -4,14 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EmployeeTest {
+class ActivityTest {
 
-    Employee employee = new Employee();
+    Activity activity = new Activity();
+
 
     @Test
     void addActivty() {
-
-        employee.addActivty();
-
+        activity.addActivty();
     }
 }
