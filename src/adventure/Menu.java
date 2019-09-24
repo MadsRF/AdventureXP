@@ -1,6 +1,7 @@
 package adventure;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -14,7 +15,7 @@ public class Menu {
 
         switch(scan.nextInt()){
             case 1:
-                //printList(activity.getActivityList());
+                printList(activity.getActivityList());
                 break;
 
             case 2:
@@ -26,7 +27,7 @@ public class Menu {
         }
     }
 
-    public void printList(ArrayList<Activity> list){
+    public void printList(List<Activity> list){
         for(Activity a : list){
             System.out.println("Activity name: " + a.getActivityName());
             System.out.println("Price: " + a.getPrice());
