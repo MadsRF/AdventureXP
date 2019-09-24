@@ -5,14 +5,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Activity activity = new Activity();
+    Menu menu = new Menu();
 
-        activity.addActivity();
-        activity.readActivityList();
-
-
-
-
+    menu.mainMenu();
 
     }
 }
