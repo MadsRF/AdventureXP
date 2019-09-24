@@ -107,7 +107,9 @@ public class Activity {
 
     }
 
-    public boolean deleteActivity(String activityName){
+    public boolean deleteActivity(){
+        System.out.println("Type the activity name");
+        String activityName = sc.nextLine();
         for (Activity activity : activityList){
             if(activity.getActivityName().equals(activityName)){
                 activityList.remove(activity);
@@ -119,30 +121,31 @@ public class Activity {
         return false;
     }
 
-    public boolean editActivity(String activityName){
-        Scanner scan = new Scanner(System.in);
+    public boolean editActivity(){
+        System.out.println("Type the activity name");
+        String activityName = sc.nextLine();
         for (Activity activity: activityList){
             if(activity.getActivityName().equals(activityName)){
                 System.out.println("Press 1 - Edit name: " + activity.getActivityName());
                 System.out.println("Press 2 - Edit price: " + activity.getPrice());
                 System.out.println("Press 3 - Edit minimum age: " + activity.getRequiredAge());
                 System.out.println("Press 4 - Edit description" + activity.getDescription());
-                switch (scan.nextInt()){
+                switch (sc.nextInt()){
                     case 1:
                         System.out.println("Type the new name");
-                        activity.setActivityName(scan.nextLine());
+                        activity.setActivityName(sc.nextLine());
                         break;
                     case 2:
                         System.out.println("Type the new price");
-                        activity.setPrice(scan.nextInt());
+                        activity.setPrice(sc.nextInt());
                         break;
                     case 3:
                         System.out.println("Type the new minimum age");
-                        activity.setRequiredAge(scan.nextInt());
+                        activity.setRequiredAge(sc.nextInt());
                         break;
                     case 4:
                         System.out.println("Type the new description");
-                        activity.setDescription(scan.nextLine());
+                        activity.setDescription(sc.nextLine());
                         break;
                 }
                 System.out.println("The change is completed");
