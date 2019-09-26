@@ -132,7 +132,7 @@ public class Activity {
                 switch (sc.nextInt()){
                     case 1:
                         System.out.println("Type the new name");
-                        activity.setActivityName(sc.nextLine());
+                        activity.setActivityName(sc.next());
                         break;
                     case 2:
                         System.out.println("Type the new price");
