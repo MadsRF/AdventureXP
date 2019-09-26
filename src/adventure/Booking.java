@@ -108,7 +108,13 @@ public class Booking {
             if(bookingNumber == b.bookingNumber){
                 System.out.println("Booking found");
                 System.out.println();
-                System.out.println("Activity Name: " + b.getActivityName() + "\nDate: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
+                System.out.println("Activity name: " + b.getActivityName());
+                System.out.println("Start time: " + b.getStartTime());
+                System.out.println("End time: " + b.getEndTime());
+                System.out.println("Date: " + b.getDate());
+                System.out.println("Number of participants: " + b.getNumberOfParticipant());
+                System.out.println("Instructor: " + b.getInstructor());
+                System.out.println("Booking number: " + b.getBookingNumber());
 
                 return b;
             }
@@ -157,7 +163,7 @@ public class Booking {
                 System.out.println("How many participants?");
                 numberOfParticipant = scan.nextInt();
 
-                Booking b = new Booking(startTime, endTime, date, numberOfParticipant, activityName);
+                Booking b = new Booking(startTime, endTime, date, numberOfParticipant, a.getActivityName());
                 System.out.println("Activity name: " + b.getActivityName());
                 System.out.println("Start time: " + b.getStartTime());
                 System.out.println("End time: " + b.getEndTime());
