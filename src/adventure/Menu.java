@@ -10,42 +10,35 @@ public class Menu {
         Activity activity = new Activity();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Press 1 - For exit");
-        System.out.println("Press 2 - View activities");
-        System.out.println("Press 3 - Create new activity");
-        System.out.println("Press 4 - Edit activity");
-        System.out.println("Press 5 - Delete activity");
+        System.out.println("Press 0 - For exit");
+        System.out.println("Press 1 - View activities");
+        System.out.println("Press 2 - Create new activity");
+        System.out.println("Press 3 - Edit activity");
+        System.out.println("Press 4 - Delete activity");
 
         switch(scan.nextInt()){
-            case 1:
+            case 0:
                 return false;
-            case 2:
+            case 1:
                 activity.readActivityList();
                 break;
 
-            case 3:
+            case 2:
                 activity.addActivity();
                 break;
 
-            case 4:
+            case 3:
                 activity.editActivity();
                 break;
-            case 5:
+
+            case 4:
                 activity.deleteActivity();
+                break;
 
             default:
                 System.out.println("Enter a valid number from the menu");
                 break;
         }
         return true;
-    }
-
-    public void printList(List<Activity> list){
-        for(Activity a : list){
-            System.out.println("Activity name: " + a.getActivityName());
-            System.out.println("Price: " + a.getPrice());
-            System.out.println("Minimum age: " + a.getRequiredAge());
-            System.out.println("Description: " + a.getDescription());
-        }
     }
 }
