@@ -11,7 +11,7 @@ public class Menu {
         Booking booking = new Booking();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Press 1 - For exit");
+        System.out.println("\n\nPress 1 - For exit");
         System.out.println("_________________");
         System.out.println("\nOPTIONS FOR ACTIVITIES");
 

@@ -108,7 +108,7 @@ public class Booking {
             if(bookingNumber == b.bookingNumber){
                 System.out.println("Booking found");
                 System.out.println();
-                System.out.println("Activity Name: " + b.getActivityName() + "Date: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
+                System.out.println("Activity Name: " + b.getActivityName() + "\nDate: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
 
                 return b;
             }
@@ -122,8 +122,13 @@ public class Booking {
 
     public void viewBookings(){
         for (Booking b : bookingList){
-
-            System.out.println("Activity Name: " + b.getActivityName() + "Date: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
+            System.out.println("Activity name: " + b.getActivityName());
+            System.out.println("Start time: " + b.getStartTime());
+            System.out.println("End time: " + b.getEndTime());
+            System.out.println("Date: " + b.getDate());
+            System.out.println("Number of participants: " + b.getNumberOfParticipant());
+            System.out.println("Instructor: " + b.getInstructor());
+            System.out.println("Booking number: " + b.getBookingNumber());
 
             }
 
