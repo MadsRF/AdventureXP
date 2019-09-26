@@ -10,27 +10,27 @@ public class Menu {
         Activity activity = new Activity();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Press 0 - For exit");
-        System.out.println("Press 1 - View activities");
-        System.out.println("Press 2 - Create new activity");
-        System.out.println("Press 3 - Edit activity");
-        System.out.println("Press 4 - Delete activity");
+        System.out.println("Press 1 - For exit");
+        System.out.println("Press 2 - View activities");
+        System.out.println("Press 3 - Create new activity");
+        System.out.println("Press 4 - Edit activity");
+        System.out.println("Press 5 - Delete activity");
 
         switch(scan.nextInt()){
-            case 0:
-                return false;
             case 1:
+                return false;
+            case 2:
                 activity.readActivityList();
                 break;
 
-            case 2:
+            case 3:
                 activity.addActivity();
                 break;
 
-            case 3:
+            case 4:
                 activity.editActivity();
                 break;
-            case 4:
+            case 5:
                 activity.deleteActivity();
 
             default:
