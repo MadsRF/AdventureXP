@@ -27,7 +27,7 @@ public class Booking {
 
     Scanner scan = new Scanner(System.in);
 
-    public void searchBooking(){
+    public Booking searchBooking(){
         System.out.println("Enter booking ID");
         bookingNumber = scan.nextInt();
         for (Booking b : bookingList){
@@ -35,8 +35,30 @@ public class Booking {
                 System.out.println("Booking found");
                 System.out.println();
                 System.out.println("Activity Name: " + b.getActivityName() + "Date: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
+
+                return b;
+            }
+            else {
+                System.out.println("Nothing found");
+
             }
         }
+        return null;
+    }
+
+    public void viewBookings(){
+        for (Booking b : bookingList){
+
+            System.out.println("Activity Name: " + b.getActivityName() + "Date: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
+
+            }
+
+    }
+
+
+    public void deleteBooking(){
+        Booking b = searchBooking();
+        bookingList.remove(b);
     }
     
     ////////////
