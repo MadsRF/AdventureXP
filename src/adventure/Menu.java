@@ -10,10 +10,11 @@ public class Menu {
         Activity activity = new Activity();
         Scanner scan = new Scanner(System.in);
 
-
         System.out.println("Press 0 - For exit");
         System.out.println("Press 1 - View activities");
         System.out.println("Press 2 - Create new activity");
+        System.out.println("Press 3 - Edit activity");
+        System.out.println("Press 4 - Delete activity");
 
         switch(scan.nextInt()){
             case 0:
@@ -25,6 +26,12 @@ public class Menu {
             case 2:
                 activity.addActivity();
                 break;
+
+            case 3:
+                activity.editActivity();
+                break;
+            case 4:
+                activity.deleteActivity();
 
             default:
                 System.out.println("Enter a valid number from the menu");

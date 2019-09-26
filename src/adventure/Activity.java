@@ -100,6 +100,7 @@ public class Activity {
     }
 
     public void readActivityList(){
+
         System.out.println("Loading activity list");
         for (Activity s: activityList){
             System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "Available: " + s.isBookedOrNot());
@@ -144,7 +145,7 @@ public class Activity {
                         break;
                     case 4:
                         System.out.println("Type the new description");
-                        activity.setDescription(sc.nextLine());
+                        activity.setDescription(sc.next());
                         break;
                 }
                 System.out.println("The change is completed");
