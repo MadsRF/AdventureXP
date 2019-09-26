@@ -28,9 +28,16 @@ public class Booking {
     Scanner scan = new Scanner(System.in);
 
     public void searchBooking(){
-
-
+        System.out.println("Enter booking ID");
+        bookingNumber = scan.nextInt();
+        for (Booking b : bookingList){
+            if(bookingNumber == b.bookingNumber){
+                System.out.println("Booking found");
+                System.out.println();
+                System.out.println("Activity Name: " + b.getActivityName() + "Date: " + b.getDate() + "\nStart time: " + b.getStartTime() + "\nEnd time: " + b.getEndTime());
+            }
+        }
     }
-
+    
     ////////////
 }
