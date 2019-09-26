@@ -98,9 +98,10 @@ public class Booking {
 
     Scanner scan = new Scanner(System.in);
 
-    public Booking searchBooking(){
+
     Activity activity = new Activity();
-    public void searchBooking(){
+
+    public Booking searchBooking(){
         System.out.println("Enter booking ID");
         bookingNumber = scan.nextInt();
         for (Booking b : bookingList){
