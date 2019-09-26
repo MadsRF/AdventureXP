@@ -30,22 +30,15 @@ public class Menu {
             case 3:
                 activity.editActivity();
                 break;
+
             case 4:
                 activity.deleteActivity();
+                break;
 
             default:
                 System.out.println("Enter a valid number from the menu");
                 break;
         }
         return true;
-    }
-
-    public void printList(List<Activity> list){
-        for(Activity a : list){
-            System.out.println("Activity name: " + a.getActivityName());
-            System.out.println("Price: " + a.getPrice());
-            System.out.println("Minimum age: " + a.getRequiredAge());
-            System.out.println("Description: " + a.getDescription());
-        }
     }
 }

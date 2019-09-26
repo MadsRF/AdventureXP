@@ -102,7 +102,7 @@ public class Activity {
     public void readActivityList(){
         System.out.println("Loading activity list");
         for (Activity s: activityList){
-            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "Available: " + s.isBookedOrNot());
+            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\nAvailable: " + s.isBookedOrNot());
         }
     }
 
