@@ -108,6 +108,7 @@ public class Activity {
         }
     }
 
+
     public boolean deleteActivity(){
         System.out.println("Type the activity name");
         String activityName = sc.nextLine();
