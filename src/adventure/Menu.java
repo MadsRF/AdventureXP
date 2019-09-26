@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public boolean mainMenu(){
+    public boolean mainMenu() {
         Activity activity = new Activity();
         Scanner scan = new Scanner(System.in);
 
@@ -16,7 +16,7 @@ public class Menu {
         System.out.println("Press 4 - Edit activity");
         System.out.println("Press 5 - Delete activity");
 
-        switch(scan.nextInt()){
+        switch (scan.nextInt()) {
             case 1:
                 return false;
             case 2:
@@ -35,3 +35,7 @@ public class Menu {
 
             default:
                 System.out.println("Enter a valid number from the menu");
+
+        }return true;
+    }
+}
