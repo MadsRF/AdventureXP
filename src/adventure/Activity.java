@@ -13,7 +13,6 @@ public class Activity {
 
     boolean bookedOrNot;
 
-
     private  static List<Activity> activityList = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
     private Scanner sc1 = new Scanner(System.in);
