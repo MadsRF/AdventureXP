@@ -13,9 +13,9 @@ public class Activity {
 
     boolean bookedOrNot;
 
+
     private  static List<Activity> activityList = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
-    private Scanner sc1 = new Scanner(System.in);
 
 
     public Activity() {
@@ -87,24 +87,22 @@ public class Activity {
         System.out.println("Choose a required age: ");
         requiredAge = sc.nextInt();
         System.out.println("Write a short description");
-        description = sc1.nextLine();
+        description = sc.next();
         bookedOrNot = false;
-
+        if (bookedOrNot == false){
+            System.out.println("Not booked");
+        }
+        else {
+            System.out.println("Booked");
+        }
         activityList.add(new Activity(activityName, price, requiredAge, description, bookedOrNot));
 
     }
 
     public void readActivityList(){
-
         System.out.println("Loading activity list");
         for (Activity s: activityList){
-
-            if(s.bookedOrNot) {
-                System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\nAvailable: Booked\n");
-            }else{
-                System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\nAvailable: Unbooked\n");
-            }
-
+            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\nAvailable: " + s.isBookedOrNot());
         }
     }
 
@@ -113,7 +111,7 @@ public class Activity {
         System.out.println("Type the activity name");
         String activityName = sc.nextLine();
         for (Activity activity : activityList){
-            if(activity.getActivityName().toLowerCase().equals(activityName.toLowerCase())){
+            if(activity.getActivityName().equals(activityName)){
                 activityList.remove(activity);
                 System.out.println("The activity: " + activity.getActivityName() + " was deleted");
                 return true;
@@ -127,16 +125,15 @@ public class Activity {
         System.out.println("Type the activity name");
         String activityName = sc.nextLine();
         for (Activity activity: activityList){
-            if(activity.getActivityName().toLowerCase().equals(activityName.toLowerCase())){
+            if(activity.getActivityName().equals(activityName)){
                 System.out.println("Press 1 - Edit name: " + activity.getActivityName());
                 System.out.println("Press 2 - Edit price: " + activity.getPrice());
                 System.out.println("Press 3 - Edit minimum age: " + activity.getRequiredAge());
                 System.out.println("Press 4 - Edit description" + activity.getDescription());
-                System.out.println("Press 5 - Exit back to menu");
                 switch (sc.nextInt()){
                     case 1:
                         System.out.println("Type the new name");
-                        activity.setActivityName(sc.next());
+                        activity.setActivityName(sc.nextLine());
                         break;
                     case 2:
                         System.out.println("Type the new price");
@@ -148,14 +145,8 @@ public class Activity {
                         break;
                     case 4:
                         System.out.println("Type the new description");
-                        activity.setDescription(sc1.nextLine());
+                        activity.setDescription(sc.nextLine());
                         break;
-                    case 5:
-                        return true;
-                    default:
-                        System.out.println("Wrong input");
-                        return true;
-
                 }
                 System.out.println("The change is completed");
                 return true;
