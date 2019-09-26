@@ -8,6 +8,7 @@ public class Menu {
 
     public boolean mainMenu() {
         Activity activity = new Activity();
+        Booking booking = new Booking();
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Press 1 - For exit");
@@ -15,6 +16,7 @@ public class Menu {
         System.out.println("Press 3 - Create new activity");
         System.out.println("Press 4 - Edit activity");
         System.out.println("Press 5 - Delete activity");
+        System.out.println("Press 6 - Create new booking");
 
         switch (scan.nextInt()) {
             case 1:
@@ -32,9 +34,16 @@ public class Menu {
                 break;
             case 5:
                 activity.deleteActivity();
+                break;
+            case 6:
+                booking.createBooking();
+                break;
+
+
 
             default:
                 System.out.println("Enter a valid number from the menu");
+                return true;
 
         }return true;
     }
