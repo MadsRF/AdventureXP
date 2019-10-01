@@ -6,9 +6,11 @@ import java.util.Scanner;
 
 public class Employee {
 
+    //Variabler for employees
     String employeeName;
     String employeeNumber;
 
+    //Konstruktører til employees
     public Employee() {
     }
 
@@ -17,6 +19,7 @@ public class Employee {
         this.employeeNumber = employeeNumber;
     }
 
+    //Getters og setters
     public String getEmployeeName() {
         return employeeName;
     }

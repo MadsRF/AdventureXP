@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class Menu {
 
+    //Metode til hovedmenuen, som bliver kaldt når main() metoden bliver kørt i Main
+    //Vi har lavet en seperat klasse til den for at gøre Main klassen mere overskuelig
+
     public boolean mainMenu() {
         Activity activity = new Activity();
         Booking booking = new Booking();
