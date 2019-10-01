@@ -140,7 +140,7 @@ public class Activity {
                 System.out.println("Press 1 - Edit name: " + activity.getActivityName());
                 System.out.println("Press 2 - Edit price: " + activity.getPrice());
                 System.out.println("Press 3 - Edit minimum age: " + activity.getRequiredAge());
-                System.out.println("Press 4 - Edit description" + activity.getDescription());
+                System.out.println("Press 4 - Edit description " + activity.getDescription());
                 System.out.println("Press 5 - Exit back to menu");
                 switch (sc.nextInt()){
                     case 1:
