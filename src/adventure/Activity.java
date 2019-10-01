@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Activity {
 
+    //Variabler for aktiviteter
+
     private String activityName;
     private int price;
     private int requiredAge;
@@ -13,14 +15,17 @@ public class Activity {
 
     boolean bookedOrNot;
 
+    //Arraylisten activityList og input scannere oprettes
+
     private  static List<Activity> activityList = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
     private Scanner sc1 = new Scanner(System.in);
 
-
+    //Konstruktør til aktivitetsinstanser
     public Activity() {
     }
 
+    //Konstruktør til aktivitetsinstanser
     public Activity(String activityName, int price, int requiredAge, String description, boolean bookedOrNot) {
         this.activityName = activityName;
         this.price = price;
@@ -28,6 +33,8 @@ public class Activity {
         this.description = description;
         this.bookedOrNot = bookedOrNot;
     }
+
+    //Getters og setters
 
     public String getActivityName() {
         return activityName;
@@ -94,6 +101,8 @@ public class Activity {
 
     }
 
+    //Metode som viser aktiviteter, som ikke er booket
+
     public void readActivityList(){
 
         System.out.println("Loading activity list");
@@ -108,6 +117,7 @@ public class Activity {
         }
     }
 
+    //Metode som sletter aktiviteter
     public boolean deleteActivity(){
         System.out.println("Type the activity name");
         String activityName = sc.nextLine();
@@ -122,6 +132,7 @@ public class Activity {
         return false;
     }
 
+    //Metode som redigerer aktiviteter
     public boolean editActivity(){
         System.out.println("Type the activity name");
         String activityName = sc.nextLine();
@@ -164,6 +175,7 @@ public class Activity {
         return false;
     }
 
+    //Metode for at booke en aktivitet
     public void bookActivity(){
 
         description = null;
