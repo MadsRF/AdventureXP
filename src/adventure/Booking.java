@@ -144,7 +144,7 @@ public class Booking {
             System.out.println("Date: " + b.getDate());
             System.out.println("Number of participants: " + b.getNumberOfParticipant());
             System.out.println("Instructor: " + b.getInstructor());
-            System.out.println("Booking number: " + b.getBookingNumber());
+            System.out.println("Booking number: " + b.getBookingNumber() + "\n");
 
             }
 
