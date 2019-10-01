@@ -2,6 +2,7 @@ package adventure;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,8 +20,14 @@ public class Booking {
     //Arraylist, som opbevarer bookinger
 
     private static ArrayList<Booking> bookingList = new ArrayList<>();
-
     //Getters og setters
+    public List<Booking> getbookingList() {
+        return bookingList;
+    }
+
+    public void setbookingList(List<Activity> activityList) {
+        this.bookingList = bookingList;
+    }
 
     public int getBookingNumber() {
         return bookingNumber;
@@ -115,7 +122,7 @@ public class Booking {
         System.out.println("Enter booking ID");
         bookingNumber = scan.nextInt();
         for (Booking b : bookingList){
-            if(bookingNumber == b.bookingNumber){
+            if(bookingNumber == b.getBookingNumber()){
                 System.out.println("Booking found");
                 System.out.println();
                 System.out.println("Activity name: " + b.getActivityName());
@@ -139,7 +146,7 @@ public class Booking {
     //Metode til at se alle bookinger fra bookingList
     public void viewBookings(){
         for (Booking b : bookingList){
-            System.out.println("Activity name: " + b.getActivityName());
+            System.out.println("\nActivity name: " + b.getActivityName());
             System.out.println("Start time: " + b.getStartTime());
             System.out.println("End time: " + b.getEndTime());
             System.out.println("Date: " + b.getDate());
@@ -152,9 +159,26 @@ public class Booking {
     }
 
     //Metode som sletter en booking
-    public void deleteBooking(){
+
+    public void deleteBooking() {
         Booking b = searchBooking();
-        bookingList.remove(b);
+        System.out.println("Do you wish to delete booking ID: " + b.getBookingNumber() + "\nyes/no");
+        String run = "run";
+        String answer = scan.next();
+
+        while (!run.equals("stop")){
+            if (answer.equals("yes")){
+                System.out.println("Booking of " + b.getActivityName() + " with the ID: " + b.getBookingNumber() + " has now been deleted.");
+                bookingList.remove(b);
+                run = "stop";
+            }
+            else if (answer.equals("no")){
+                System.out.println(b.getBookingNumber() + " has not been deleted.");
+            }
+            else {
+                System.out.println("Wrong input");
+            }
+        }
     }
     
     //Metode som opretter en booking
