@@ -187,6 +187,7 @@ public class Booking {
         activity.readActivityList();
         System.out.println("Choose activity");
         String activityName = scan.next();
+
         for (Activity a : activity.getActivityList()){
             if(activityName.toLowerCase().equals(a.getActivityName().toLowerCase())){
                 System.out.println("Pick start time");
@@ -213,8 +214,12 @@ public class Booking {
                     bookingList.add(b);
                     a.setBookedOrNot(true);
                 }
+
+            }
+            else {
+                System.out.println("This activity doesn't exist.");
+                break;
             }
         }
-
     }
 }
