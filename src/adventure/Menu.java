@@ -14,49 +14,50 @@ public class Menu {
         Booking booking = new Booking();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("\n\nPress 1 - For exit");
+        System.out.println("\n\nPRESS 0 - For exit");
         System.out.println("_________________");
         System.out.println("\nOPTIONS FOR ACTIVITIES");
 
-        System.out.println("Press 2 - View activities");
-        System.out.println("Press 3 - Create new activity");
-        System.out.println("Press 4 - Edit activity");
-        System.out.println("Press 5 - Delete activity");
+        System.out.println("PRESS 1 - View activities");
+        System.out.println("PRESS 2 - Create new activity");
+        System.out.println("PRESS 3 - Edit activity");
+        System.out.println("PRESS 4 - Delete activity");
 
         System.out.println("\nOPTIONS FOR BOOKINGS");
 
-        System.out.println("Press 6 - Create new booking");
-        System.out.println("Press 7 - Search for a booking");
-        System.out.println("Press 8 - Delete a booking");
-        System.out.println("Press 9 - View all bookings");
+        System.out.println("PRESS 5 - Create new booking");
+        System.out.println("PRESS 6 - Search for a booking");
+        System.out.println("PRESS 7 - Delete a booking");
+        System.out.println("PRESS 8 - View all bookings");
 
         switch (scan.nextInt()) {
-            case 1:
+            case 0:
+                System.out.println("Exiting program...");
                 return false;
-            case 2:
+            case 1:
                 activity.readActivityList();
                 break;
 
-            case 3:
+            case 2:
                 activity.addActivity();
                 break;
 
-            case 4:
+            case 3:
                 activity.editActivity();
                 break;
-            case 5:
+            case 4:
                 activity.deleteActivity();
                 break;
-            case 6:
+            case 5:
                 booking.createBooking();
                 break;
-            case 7:
+            case 6:
                 booking.searchBooking();
                 break;
-            case 8:
+            case 7:
                 booking.deleteBooking();
                 break;
-            case 9:
+            case 8:
                 booking.viewBookings();
                 break;
 

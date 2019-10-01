@@ -135,8 +135,7 @@ public class Booking {
 
                 return b;
             }
-            else {
-                System.out.println("Nothing found");
+            else if (bookingNumber != b.getBookingNumber()){
 
             }
         }
@@ -161,6 +160,7 @@ public class Booking {
     //Metode som sletter en booking
 
     public void deleteBooking() {
+        try {
         Booking b = searchBooking();
         System.out.println("Do you wish to delete booking ID: " + b.getBookingNumber() + "\nyes/no");
         String run = "run";
@@ -178,6 +178,8 @@ public class Booking {
             else {
                 System.out.println("Wrong input");
             }
+        } } catch (Exception e) {
+            System.out.println("No booking ID found.");
         }
     }
     
