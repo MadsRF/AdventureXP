@@ -21,11 +21,10 @@ public class Activity {
     private Scanner sc = new Scanner(System.in);
     private Scanner sc1 = new Scanner(System.in);
 
-    //Konstruktør til aktivitetsinstanser
+    //Konstruktører til aktivitetsinstanser
     public Activity() {
     }
 
-    //Konstruktør til aktivitetsinstanser
     public Activity(String activityName, int price, int requiredAge, String description, boolean bookedOrNot) {
         this.activityName = activityName;
         this.price = price;

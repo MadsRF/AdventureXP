@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Booking {
 
+    //Variabler til bookinger
     private int startTime;
     private int endTime;
     private String date;
@@ -15,7 +16,11 @@ public class Booking {
     private int numberOfParticipant;
     private String activityName;
 
+    //Arraylist, som opbevarer bookinger
+
     private static ArrayList<Booking> bookingList = new ArrayList<>();
+
+    //Getters og setters
 
     public int getBookingNumber() {
         return bookingNumber;
@@ -83,6 +88,8 @@ public class Booking {
 
     Random random = new Random();
 
+    //Konstruktører til bookings
+
     public Booking() {
     }
 
@@ -96,11 +103,14 @@ public class Booking {
         this.bookingNumber = random.nextInt(99998)+1;
     }
 
+    //Scanner oprettes til at læse bruger input
+
     Scanner scan = new Scanner(System.in);
 
-
+    //Aktivitet instansieres
     Activity activity = new Activity();
 
+    //Metode til at finde en booking
     public Booking searchBooking(){
         System.out.println("Enter booking ID");
         bookingNumber = scan.nextInt();
@@ -126,6 +136,7 @@ public class Booking {
         return null;
     }
 
+    //Metode til at se alle bookinger fra bookingList
     public void viewBookings(){
         for (Booking b : bookingList){
             System.out.println("Activity name: " + b.getActivityName());
@@ -140,13 +151,13 @@ public class Booking {
 
     }
 
-
+    //Metode som sletter en booking
     public void deleteBooking(){
         Booking b = searchBooking();
         bookingList.remove(b);
     }
     
-    ////////////
+    //Metode som opretter en booking
 
     public void createBooking(){
         activity.readActivityList();
