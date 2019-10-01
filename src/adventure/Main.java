@@ -11,11 +11,11 @@ public class Main {
         Booking b = new Booking();
 
         //Aktiviteterne oprettes ved opstart
-        Activity activity1 = new Activity("Fodbold", 200, 20, "Spille_Fodboold", false);
-        Activity activity2 = new Activity("Basketbold", 200, 20, "Spille_Basket", false);
-        Activity activity3 = new Activity("Håndbold", 200, 20, "Spille_håndbold", false);
-        Activity activity4 = new Activity("Esport", 200, 20, "Spille_pc", false);
-        Activity activity5 = new Activity("Cricket", 200, 20, "spille_cricket", false);
+        Activity activity1 = new Activity("Fodbold", 200, 20, "Spille_Fodboold", true);
+        Activity activity2 = new Activity("Basketbold", 200, 20, "Spille_Basket", true);
+        Activity activity3 = new Activity("Håndbold", 200, 20, "Spille_håndbold", true);
+        Activity activity4 = new Activity("Esport", 200, 20, "Spille_pc", true);
+        Activity activity5 = new Activity("Cricket", 200, 20, "spille_cricket", true);
 
         //Bookingerne oprettes ved opstart
         Booking booking1 = new Booking(1230, 1330, "01-10-2019", 4, "Fodbold");
