@@ -1,11 +1,9 @@
 package adventure;
 
-import java.io.FileNotFoundException;
-
 public class Main {
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         //Aktivitet objekt instansieres
         Activity a = new Activity();
@@ -15,8 +13,8 @@ public class Main {
         //Hovedmenuen instatieres og køres
         Menu menu = new Menu();
 
-        Activity activity = new Activity();
-        activity.activityReadFromFile();
+        a.activityReadFromFile();
+        b.bookingReadFromFile();
 
         while(menu.mainMenu()){
         }
