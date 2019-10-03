@@ -62,11 +62,11 @@ public class Menu {
                 break;
 
 
-
             default:
                 System.out.println("Enter a valid number from the menu");
                 return true;
 
-        }return true;
+        }
+        return true;
     }
 }

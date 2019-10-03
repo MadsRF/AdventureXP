@@ -214,9 +214,7 @@ public class Booking {
                 String answer = scan.next().toLowerCase();
                 if (answer.equals("yes")){
                     bookingList.add(b);
-                    a.setBookedOrNot(true);
                 }
-
             }
             else {
                 System.out.println("This activity doesn't exist.");

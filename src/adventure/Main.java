@@ -11,12 +11,13 @@ public class Main {
         Booking b = new Booking();
 
         //Aktiviteterne oprettes ved opstart
+        /*
         Activity activity1 = new Activity("Fodbold", 200, 20, "Spille_Fodboold", false);
         Activity activity2 = new Activity("Basketbold", 200, 20, "Spille_Basket", false);
         Activity activity3 = new Activity("Håndbold", 200, 20, "Spille_håndbold", false);
         Activity activity4 = new Activity("Esport", 200, 20, "Spille_pc", false);
         Activity activity5 = new Activity("Cricket", 200, 20, "spille_cricket", false);
-
+        */
         //Bookingerne oprettes ved opstart
         Booking booking1 = new Booking(1230, 1330, "01-10-2019", 4, "Fodbold");
         Booking booking2 = new Booking(1330, 1430, "01-10-2019", 32, "Håndbold");
@@ -25,12 +26,13 @@ public class Main {
         Booking booking5 = new Booking(1630, 1730, "01-10-2019", 27, "Basketbold");
 
         //Aktiviteterne tilføjes til Arraylisten activityList
+        /*
         a.getActivityList().add(activity1);
         a.getActivityList().add(activity2);
         a.getActivityList().add(activity3);
         a.getActivityList().add(activity4);
         a.getActivityList().add(activity5);
-
+        */
         //Bookingerne tilføjes til Arraylisten bookingList
         b.getbookingList().add(booking1);
         b.getbookingList().add(booking2);
@@ -40,7 +42,12 @@ public class Main {
 
         //Hovedmenuen instatieres og køres
         Menu menu = new Menu();
+
+        Activity activity = new Activity();
+        activity.activityReadFromFile();
+
         while(menu.mainMenu()){
+
         }
     }
 }

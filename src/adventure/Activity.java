@@ -1,5 +1,8 @@
 package adventure;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +16,6 @@ public class Activity {
     private int requiredAge;
     private String description;
 
-    boolean bookedOrNot;
 
     //Arraylisten activityList og input scannere oprettes
 
@@ -25,12 +27,11 @@ public class Activity {
     public Activity() {
     }
 
-    public Activity(String activityName, int price, int requiredAge, String description, boolean bookedOrNot) {
+    public Activity(String activityName, int price, int requiredAge, String description) {
         this.activityName = activityName;
         this.price = price;
         this.requiredAge = requiredAge;
         this.description = description;
-        this.bookedOrNot = bookedOrNot;
     }
 
     //Getters og setters
@@ -67,14 +68,6 @@ public class Activity {
         this.description = description;
     }
 
-    public boolean isBookedOrNot() {
-        return bookedOrNot;
-    }
-
-    public void setBookedOrNot(boolean bookedOrNot) {
-        this.bookedOrNot = bookedOrNot;
-    }
-
     public List<Activity> getActivityList() {
         return activityList;
     }
@@ -94,9 +87,15 @@ public class Activity {
         requiredAge = sc.nextInt();
         System.out.println("Write a short description");
         description = sc1.nextLine();
-        bookedOrNot = false;
 
-        activityList.add(new Activity(activityName, price, requiredAge, description, bookedOrNot));
+        activityList.add(new Activity(activityName, price, requiredAge, description));
+
+        try {
+            activityWriteToFile();
+        }
+        catch (Exception e){
+            System.out.println("Failed to save activities to file");
+        }
 
     }
 
@@ -106,13 +105,7 @@ public class Activity {
 
         System.out.println("Loading activity list");
         for (Activity s: activityList){
-
-            if(s.bookedOrNot) {
-                System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\nAvailable: Booked\n");
-            }else{
-                System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\nAvailable: Unbooked\n");
-            }
-
+            System.out.println("Activity name: " + s.getActivityName() + "\nPrice : " + s.getPrice() + "\nRequired age: " + s.getRequiredAge() + "\nDescription: " + s.getDescription() + "\n");
         }
     }
 
@@ -123,6 +116,14 @@ public class Activity {
         for (Activity activity : activityList){
             if(activity.getActivityName().toLowerCase().equals(activityName.toLowerCase())){
                 activityList.remove(activity);
+
+                try {
+                    activityWriteToFile();
+                }
+                catch (Exception e){
+                    System.out.println("Failed to save activities to file");
+                }
+
                 System.out.println("The activity: " + activity.getActivityName() + " was deleted");
                 return true;
             }
@@ -166,6 +167,14 @@ public class Activity {
                         return true;
 
                 }
+
+                try {
+                    activityWriteToFile();
+                }
+                catch (Exception e){
+                    System.out.println("Failed to save activities to file");
+                }
+
                 System.out.println("The change is completed");
                 return true;
             }
@@ -188,13 +197,44 @@ public class Activity {
         for (Activity a: activityList){
             if (a.getActivityName().equals(answer)){
                 System.out.println("You have chosen to book " + a.getActivityName());
-                a.setBookedOrNot(true);
             }
 
         }
         readActivityList();
-
     }
+
+    @Override
+    public String toString(){
+        return getActivityName() + ";" + getPrice() + ";" + getRequiredAge() + ";" + getDescription();
+    }
+
+    public void activityWriteToFile()throws FileNotFoundException {
+
+        PrintStream ps = new PrintStream("Activities");
+
+        for (Activity a : getActivityList()){
+            ps.println(a.toString());
+        }
+    }
+
+    public void activityReadFromFile(){
+        File f = new File("Activities");
+        try {
+            Scanner s = new Scanner(f);
+            activityList.clear();
+            while (s.hasNextLine()) {
+                String line = s.nextLine();
+                String[] info = line.split(";");
+                Activity a = new Activity(info[0], Integer.parseInt(info[1]), Integer.parseInt(info[2]), info[3]);
+                activityList.add(a);
+            }
+        }
+        catch (Exception e){
+            //who cares
+        }
+    }
+
+
 
 
 }
