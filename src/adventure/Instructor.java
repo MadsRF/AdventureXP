@@ -62,20 +62,19 @@ public class Instructor {
     }
 
     public void readInstructorFile(){
-        File f = new File("C:\\Users\\madsr\\IdeaProjects\\AdventureXP\\src\\Instructor");
+        File f = new File("Instructor");
         try {
             Scanner s = new Scanner(f);
             instructorList.clear();
             while (s.hasNext()) {
-                String name = s.nextLine();
-                String speciality = s.nextLine();
+                String name = s.next();
+                String speciality = s.next();
 
                 Instructor i = new Instructor(name, speciality);
                 instructorList.add(i);
-
-                for (Instructor j: instructorList){
-                    System.out.println(j.getName()+" "+j.getSpeciality());
-                }
+            }
+            for (Instructor j: instructorList) {
+                System.out.println(j.getName() + " " + j.getSpeciality());
             }
         }
         catch (Exception e){
@@ -84,9 +83,12 @@ public class Instructor {
     }
 
     public void saveInstructorFile() throws FileNotFoundException {
-        PrintStream output = new PrintStream(new FileOutputStream("C:\\Users\\madsr\\IdeaProjects\\AdventureXP\\src\\Instructor", true));
+        PrintStream output = new PrintStream(("Instructor"));
+        output.println("");
+
+        PrintStream output1 = new PrintStream(new FileOutputStream("Instructor", true));
         for (Instructor i : instructorList) {
-            output.println(i.getName()+" "+i.getSpeciality());
+            output1.println(i.getName()+" "+i.getSpeciality());
         }
         System.out.println();
     }

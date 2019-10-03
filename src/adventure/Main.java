@@ -10,13 +10,19 @@ public class Main {
         //Booking objekt instansieres
         Booking b = new Booking();
 
+        Instructor i = new Instructor();
+
+        i.readInstructorFile();
+        i.createInstructor();
+        i.readInstructorFile();
+
         //Hovedmenuen instatieres og køres
         Menu menu = new Menu();
 
         a.activityReadFromFile();
         b.bookingReadFromFile();
 
-        while(menu.mainMenu()){
-        }
+        /*while(menu.mainMenu()){
+        }*/
     }
 }
