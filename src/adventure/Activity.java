@@ -12,7 +12,7 @@ public class Activity {
     //Variabler for aktiviteter
 
     private String activityName;
-    private int price;
+    private double price;
     private int requiredAge;
     private String description;
 
@@ -27,7 +27,7 @@ public class Activity {
     public Activity() {
     }
 
-    public Activity(String activityName, int price, int requiredAge, String description) {
+    public Activity(String activityName, double price, int requiredAge, String description) {
         this.activityName = activityName;
         this.price = price;
         this.requiredAge = requiredAge;
@@ -44,11 +44,11 @@ public class Activity {
         this.activityName = activityName;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -82,7 +82,7 @@ public class Activity {
         activityName = sc.nextLine();
         System.out.println("You have created " + activityName + "\n");
         System.out.println("Choose a price:");
-        price = sc.nextInt();
+        price = sc.nextDouble();
         System.out.println("Choose a required age: ");
         requiredAge = sc.nextInt();
         System.out.println("Write a short description");
@@ -233,8 +233,5 @@ public class Activity {
             //who cares
         }
     }
-
-
-
 
 }

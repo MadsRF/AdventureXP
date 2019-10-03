@@ -47,7 +47,6 @@ public class Main {
         activity.activityReadFromFile();
 
         while(menu.mainMenu()){
-
         }
     }
 }

@@ -143,7 +143,7 @@ public class Booking {
     }
 
     //Metode til at se alle bookinger fra bookingList
-    public void viewBookings(){
+    public void viewBookingsAsEmployee(){
         for (Booking b : bookingList){
             System.out.println("\nActivity name: " + b.getActivityName());
             System.out.println("Start time: " + b.getStartTime());
@@ -156,6 +156,18 @@ public class Booking {
             }
 
     }
+    public void viewBookingsAsCustomer(){
+        for (Booking b : bookingList){
+            System.out.println("\nActivity name: " + b.getActivityName());
+            System.out.println("Start time: " + b.getStartTime());
+            System.out.println("End time: " + b.getEndTime());
+            System.out.println("Date: " + b.getDate());
+            System.out.println("Number of participants: " + b.getNumberOfParticipant());
+            System.out.println("Instructor: " + b.getInstructor());
+        }
+
+    }
+
 
     //Metode som sletter en booking
 
@@ -216,10 +228,7 @@ public class Booking {
                     bookingList.add(b);
                 }
             }
-            else {
-                System.out.println("This activity doesn't exist.");
-                break;
-            }
+
         }
     }
 }
