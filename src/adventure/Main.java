@@ -22,7 +22,7 @@ public class Main {
         a.activityReadFromFile();
         b.bookingReadFromFile();
 
-        /*while(menu.mainMenu()){
-        }*/
+        while(menu.mainMenu()){
+        }
     }
 }
