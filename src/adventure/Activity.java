@@ -2,6 +2,7 @@ package adventure;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,8 +79,19 @@ public class Activity {
 
     public void addActivity(){
 
-        System.out.println("You have chosen to add an activity\nType in the name of the new activity");
-        activityName = sc.nextLine();
+        System.out.println("You have chosen to add an activity");
+        boolean nameCheck = true;
+        while(nameCheck == true){
+            System.out.println("Type in the name of the new activity");
+            activityName = sc.next();
+            nameCheck = false;
+            for (Activity a : getActivityList()) {
+                if (activityName.equals(a.getActivityName())) {
+                    System.out.println("This activity already exists.");
+                    nameCheck = true;
+                }
+            }
+        }
         System.out.println("You have created " + activityName + "\n");
         System.out.println("Choose a price:");
         price = sc.nextDouble();
@@ -210,8 +222,9 @@ public class Activity {
 
     public void activityWriteToFile()throws FileNotFoundException {
 
-        PrintStream ps = new PrintStream("Activities");
-
+        PrintStream pss = new PrintStream("Activities");
+        PrintStream ps = new PrintStream(new FileOutputStream("Activities", true));
+        pss.print("");
         for (Activity a : getActivityList()){
             ps.println(a.toString());
         }
@@ -225,7 +238,7 @@ public class Activity {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] info = line.split(";");
-                Activity a = new Activity(info[0], Integer.parseInt(info[1]), Integer.parseInt(info[2]), info[3]);
+                Activity a = new Activity(info[0], Double.parseDouble(info[1]), Integer.parseInt(info[2]), info[3]);
                 activityList.add(a);
             }
         }

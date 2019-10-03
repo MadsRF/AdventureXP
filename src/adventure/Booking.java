@@ -2,6 +2,7 @@ package adventure;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintStream;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -255,7 +256,9 @@ public class Booking {
 
     public void bookingWriteToFile()throws FileNotFoundException {
 
-        PrintStream ps = new PrintStream("Bookings");
+        PrintStream pss = new PrintStream("Bookings");
+        PrintStream ps = new PrintStream(new FileOutputStream("Bookings", true));
+        pss.print("");
 
         for (Booking b : getbookingList()){
             ps.println(b.toString());
