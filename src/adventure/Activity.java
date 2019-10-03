@@ -79,8 +79,19 @@ public class Activity {
 
     public void addActivity(){
 
-        System.out.println("You have chosen to add an activity\nType in the name of the new activity");
-        activityName = sc.next();
+        System.out.println("You have chosen to add an activity");
+        boolean nameCheck = true;
+        while(nameCheck == true){
+            System.out.println("Type in the name of the new activity");
+            activityName = sc.next();
+            nameCheck = false;
+            for (Activity a : getActivityList()) {
+                if (activityName.equals(a.getActivityName())) {
+                    System.out.println("This activity already exists.");
+                    nameCheck = true;
+                }
+            }
+        }
         System.out.println("You have created " + activityName + "\n");
         System.out.println("Choose a price:");
         price = sc.nextDouble();
@@ -214,7 +225,6 @@ public class Activity {
         PrintStream pss = new PrintStream("Activities");
         PrintStream ps = new PrintStream(new FileOutputStream("Activities", true));
         pss.print("");
-
         for (Activity a : getActivityList()){
             ps.println(a.toString());
         }
@@ -228,14 +238,12 @@ public class Activity {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] info = line.split(";");
-                System.out.println(info[0]);
                 Activity a = new Activity(info[0], Double.parseDouble(info[1]), Integer.parseInt(info[2]), info[3]);
                 activityList.add(a);
             }
         }
-
         catch (Exception e){
-            System.out.println(e);
+            //who cares
         }
     }
 
