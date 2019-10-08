@@ -19,7 +19,6 @@ public class Main {
         b.bookingReadFromFile();
 
         //Hovedmenuen vises på konsollen
-
         while(menu.mainMenu()){
         }
     }

@@ -157,9 +157,7 @@ public class Booking {
             System.out.println("Number of participants: " + b.getNumberOfParticipant());
             System.out.println("Instructor: " + b.getInstructor());
             System.out.println("Booking number: " + b.getBookingNumber() + "\n");
-
-            }
-
+        }
     }
 
     //Metode til at se alle bookinger fra bookingList som kunde
@@ -249,7 +247,7 @@ public class Booking {
         }
     }
 
-    ////Metode som oversætter data om bookinger til String, som kan læses fra filen
+    //Metode som oversætter data om bookinger til String, som kan læses fra filen
     @Override
     public String toString(){
         return getStartTime() + ";" + getEndTime() + ";" + getDate() + ";" + getInstructor() + ";" + getBookingNumber() + ";" + getNumberOfParticipant() + ";" + getActivityName();
@@ -281,7 +279,7 @@ public class Booking {
             }
         }
         catch (Exception e){
-            //who cares
+            System.out.println("File not found");
         }
     }
 }
