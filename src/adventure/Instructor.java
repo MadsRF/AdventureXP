@@ -93,14 +93,66 @@ public class Instructor {
         System.out.println();
     }
 
-    public void updateInstructor(){
+    public boolean updateInstructor(){
+        System.out.println("Type the instructor name");
+        name  = scan.nextLine();
+
+        for (Instructor i: instructorList){
+            if(i.getName().toLowerCase().equals(getName().toLowerCase())){
+                System.out.println("Press 1 - Edit name: " + i.getName());
+                System.out.println("Press 2 - Edit speciality: " + i.getSpeciality());
+                System.out.println("Press 3 - Exit back to menu");
+                switch (scan.nextInt()){
+                    case 1:
+                        System.out.println("Type the new name");
+                        i.setName(scan.next());
+                        break;
+                    case 2:
+                        System.out.println("Type the new speciality");
+                        i.setSpeciality(scan.next());
+                        break;
+                    case 3:
+                        return true;
+                    default:
+                        System.out.println("Wrong input");
+                        return true;
+                }
+                try {
+                    saveInstructorFile();
+                }
+                catch (Exception e){
+                    System.out.println("Failed to save instructor to file");
+                }
+                System.out.println("The change is completed");
+                return true;
+            }
+        }
+        System.out.println("Couldn't find an instructor with the name: " + name);
+        return false;
+
 
     }
 
-    public void deleteInstructor(){
+    public boolean deleteInstructor() {
+        System.out.println("Type the instructor name");
+        name = scan.nextLine();
 
+        for (Instructor i : instructorList) {
+            if (i.getName().toLowerCase().equals(getName().toLowerCase())) {
+                instructorList.remove(i);
+            }
+            try {
+                saveInstructorFile();
+            }
+            catch (Exception e) {
+                System.out.println("Failed to save instructor to file");
+            }
+            System.out.println("The instructor: " + i.getName() + " was deleted");
+            return true;
+        }
+        System.out.println("Couldn't find an activity with the name: " + name);
+        return false;
     }
-
 }
 
 
