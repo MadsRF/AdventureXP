@@ -23,8 +23,12 @@ public class Main {
         i.deleteInstructor();
         i.readInstructorFile();
 
+        //Aktiviteterne hentes fra filen
         a.activityReadFromFile();
+        //Bookingerne hentes fra filen
         b.bookingReadFromFile();
+
+        //Hovedmenuen vises på konsollen
 
         //while(menu.mainMenu()){
         //}
