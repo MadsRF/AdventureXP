@@ -21,137 +21,141 @@ public class Menu {
 
     public boolean mainMenu() {
 
-            Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
 
-            System.out.println("PRESS 1 - For EMPLOYEE page");
-            System.out.println("PRESS 2 - For COSTUMER page");
+        System.out.println("\n\nPRESS 0 - For exit");
+        System.out.println("__________________");
+        System.out.println("PRESS 1 - For EMPLOYEE page");
+        System.out.println("PRESS 2 - For COSTUMER page");
 
-            String choice = sc.next();
+        String choice = sc.next();
 
-            // admin menu
+        //exit program
+        if(choice.equals("0")){
+            return false;
+        }
 
-            if (choice.equals("1")) {
+        // admin menu
+        else if (choice.equals("1")) {
+            //very simple hardcoded "login" page
+            System.out.println("USERNAME:");
+            answer = sc.next();
+            System.out.println("PASSWORD:");
+            answer2 = sc.next();
 
+            if (answer.equals(username) && (answer2.equals(password))) {
 
-                //very simple hardcoded "login" page
-                System.out.println("USERNAME:");
-                answer = sc.next();
-                System.out.println("PASSWORD:");
-                answer2 = sc.next();
-
-                if (answer.equals(username) && (answer2.equals(password))) {
-
-                    while (true) {
-
-                        System.out.println("\n\nPRESS 0 - For exit");
-                        System.out.println("_________________");
-                        System.out.println("OPTIONS FOR ACTIVITIES");
-
-                        System.out.println("PRESS 1 - View activities");
-                        System.out.println("PRESS 2 - Create new activity");
-                        System.out.println("PRESS 3 - Edit activity");
-                        System.out.println("PRESS 4 - Delete activity");
-
-                        System.out.println("\nOPTIONS FOR BOOKINGS");
-
-                        System.out.println("PRESS 5 - Create new booking");
-                        System.out.println("PRESS 6 - Search for a booking");
-                        System.out.println("PRESS 7 - Delete a booking");
-                        System.out.println("PRESS 8 - View all bookings");
-
-                        switch (scan.nextInt()) {
-                            case 0:
-                                System.out.println("Exiting program...");
-                                return false;
-                            case 1:
-                                activity.readActivityList();
-                                break;
-
-                            case 2:
-                                activity.addActivity();
-                                break;
-
-                            case 3:
-                                activity.editActivity();
-                                break;
-                            case 4:
-                                activity.deleteActivity();
-                                break;
-                            case 5:
-                                booking.createBooking();
-                                break;
-                            case 6:
-                                booking.searchBooking();
-                                break;
-                            case 7:
-                                booking.deleteBooking();
-                                break;
-                            case 8:
-                                booking.viewBookingsAsEmployee();
-                                break;
-
-                            default:
-                                System.out.println("Enter a valid number from the menu");
-                                return true;
-
-                        }
-
-                    }
-                } else {
-                    System.out.println("USERNAME OR PASSWORD INCORRECT\nTRY AGAIN");
-                    mainMenu();
-                }
-
-            }
-            // customer menu.
-            else if (choice.equals("2")) {
                 while (true) {
-                    System.out.println("\n\nPRESS 0 - For exit");
+
+                    System.out.println("\n\nPRESS 0 - Go back to main menu");
                     System.out.println("_________________");
                     System.out.println("OPTIONS FOR ACTIVITIES");
 
                     System.out.println("PRESS 1 - View activities");
+                    System.out.println("PRESS 2 - Create new activity");
+                    System.out.println("PRESS 3 - Edit activity");
+                    System.out.println("PRESS 4 - Delete activity");
 
                     System.out.println("\nOPTIONS FOR BOOKINGS");
 
-                    System.out.println("PRESS 2 - Create new booking");
-                    System.out.println("PRESS 3 - Search for a booking");
-                    System.out.println("PRESS 4 - Delete a booking");
-                    System.out.println("PRESS 5 - View all bookings");
-                    switch (sc.nextInt()) {
-                        case 0:
-                            System.out.println("Exiting program...");
-                            return false;
+                    System.out.println("PRESS 5 - Create new booking");
+                    System.out.println("PRESS 6 - Search for a booking");
+                    System.out.println("PRESS 7 - Delete a booking");
+                    System.out.println("PRESS 8 - View all bookings");
 
+                    switch (scan.nextInt()) {
+                        case 0:
+                            System.out.println("Loading main menu...");
+                            return true;
                         case 1:
                             activity.readActivityList();
                             break;
 
                         case 2:
-                            booking.createBooking();
+                            activity.addActivity();
                             break;
 
                         case 3:
+                            activity.editActivity();
+                            break;
+                        case 4:
+                            activity.deleteActivity();
+                            break;
+                        case 5:
+                            booking.createBooking();
+                            break;
+                        case 6:
                             booking.searchBooking();
                             break;
-
-                        case 4:
+                        case 7:
                             booking.deleteBooking();
                             break;
-
-                        case 5:
-                            booking.viewBookingsAsCustomer();
+                        case 8:
+                            booking.viewBookingsAsEmployee();
                             break;
 
                         default:
                             System.out.println("Enter a valid number from the menu");
-                            return true;
-
+                            break;
 
                     }
+
+                }
+            } else {
+                System.out.println("USERNAME OR PASSWORD INCORRECT\nTRY AGAIN");
+                mainMenu();
+            }
+
+        }
+        // customer menu.
+        else if (choice.equals("2")) {
+            while (true) {
+                System.out.println("\n\nPRESS 0 - For log out");
+                System.out.println("_________________");
+                System.out.println("OPTIONS FOR ACTIVITIES");
+
+                System.out.println("PRESS 1 - View activities");
+
+                System.out.println("\nOPTIONS FOR BOOKINGS");
+
+                System.out.println("PRESS 2 - Create new booking");
+                System.out.println("PRESS 3 - Search for a booking");
+                System.out.println("PRESS 4 - Delete a booking");
+                System.out.println("PRESS 5 - View all bookings");
+                switch (sc.nextInt()) {
+                    case 0:
+                        System.out.println("Loading main menu...");
+                        return true;
+
+                    case 1:
+                        activity.readActivityList();
+                        break;
+
+                    case 2:
+                        booking.createBooking();
+                        break;
+
+                    case 3:
+                        booking.searchBooking();
+                        break;
+
+                    case 4:
+                        booking.deleteBooking();
+                        break;
+
+                    case 5:
+                        booking.viewBookingsAsCustomer();
+                        break;
+
+                    default:
+                        System.out.println("Enter a valid number from the menu");
+                        break;
+
+
                 }
             }
+        }
         return true;
     }
 }
