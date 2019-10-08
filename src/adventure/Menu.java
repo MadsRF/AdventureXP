@@ -35,7 +35,7 @@ public class Menu {
             return false;
         }
 
-        // Hovedmenu for admin-brugeren
+        //Hovedmenu for admin-brugeren
         else if (choice.equals("1")) {
             //very simple hardcoded "login" page
             System.out.println("USERNAME:");

@@ -144,7 +144,7 @@ public class Activity {
     //Metode som redigerer aktiviteter
     public boolean editActivity(){
         System.out.println("Type the activity name");
-        String activityName = sc.nextLine();
+        String activityName = sc.next();
         for (Activity activity: activityList){
             if(activity.getActivityName().toLowerCase().equals(activityName.toLowerCase())){
                 System.out.println("Press 1 - Edit name: " + activity.getActivityName());
