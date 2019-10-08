@@ -7,9 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    //Metode til hovedmenuen, som bliver kaldt når main() metoden bliver kørt i Main
-    //Vi har lavet en seperat klasse til den for at gøre Main klassen mere overskuelig
-
+    //Variabler for Menu
     private String username = "admin";
     private String password = "password";
     private Scanner sc = new Scanner(System.in);
@@ -18,7 +16,8 @@ public class Menu {
     Activity activity = new Activity();
     Booking booking = new Booking();
 
-
+    //Metode til hovedmenuen, som bliver kaldt når main() metoden bliver kørt i Main
+    //Vi har lavet en seperat klasse til den for at gøre Main klassen mere overskuelig
     public boolean mainMenu() {
 
             Scanner scan = new Scanner(System.in);

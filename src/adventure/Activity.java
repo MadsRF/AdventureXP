@@ -77,6 +77,8 @@ public class Activity {
         this.activityList = activityList;
     }
 
+    //Metode som opretter en ny aktivitet. Den tjekker først, om aktiviteten findes allerede.
+
     public void addActivity(){
 
         System.out.println("You have chosen to add an activity");
@@ -195,8 +197,8 @@ public class Activity {
         return false;
     }
 
-    //Metode for at booke en aktivitet
-    public void bookActivity(){
+    //Metode for at booke en aktivitet -- Bliver ikke brugt -- Den rigtige ligger i Booking.java
+    /*public void bookActivity(){
 
         description = null;
 
@@ -213,13 +215,15 @@ public class Activity {
 
         }
         readActivityList();
-    }
+    }*/
 
+    //Metode som oversætter data om aktiviteter til String, som kan læses fra filen
     @Override
     public String toString(){
         return getActivityName() + ";" + getPrice() + ";" + getRequiredAge() + ";" + getDescription();
     }
 
+    //Metode som skriver aktiviteter ind i aktivitetsfilen
     public void activityWriteToFile()throws FileNotFoundException {
 
         PrintStream pss = new PrintStream("Activities");
@@ -230,6 +234,7 @@ public class Activity {
         }
     }
 
+    //Metode som henter aktiviteterne fra filen og sætter dem ind i activityList
     public void activityReadFromFile(){
         File f = new File("Activities");
         try {

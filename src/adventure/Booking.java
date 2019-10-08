@@ -22,9 +22,9 @@ public class Booking {
     private String activityName;
 
     //Arraylist, som opbevarer bookinger
-
     private static ArrayList<Booking> bookingList = new ArrayList<>();
 
+    //Konstruktører
     public Booking() {
     }
 
@@ -113,10 +113,10 @@ public class Booking {
         this.numberOfParticipant = numberOfParticipant;
     }
 
+    //Random objekt bliver oprettet
     Random random = new Random();
 
    //Scanner oprettes til at læse bruger input
-
     Scanner scan = new Scanner(System.in);
 
     //Aktivitet instansieres
@@ -147,7 +147,7 @@ public class Booking {
         return null;
     }
 
-    //Metode til at se alle bookinger fra bookingList
+    //Metode til at se alle bookinger fra bookingList som medarbejder
     public void viewBookingsAsEmployee(){
         for (Booking b : bookingList){
             System.out.println("\nActivity name: " + b.getActivityName());
@@ -161,6 +161,8 @@ public class Booking {
             }
 
     }
+
+    //Metode til at se alle bookinger fra bookingList som kunde
     public void viewBookingsAsCustomer(){
         for (Booking b : bookingList){
             System.out.println("\nActivity name: " + b.getActivityName());
@@ -175,7 +177,6 @@ public class Booking {
 
 
     //Metode som sletter en booking
-
     public void deleteBooking() {
         try {
         Booking b = searchBooking();
@@ -207,7 +208,6 @@ public class Booking {
     }
     
     //Metode som opretter en booking
-
     public void createBooking(){
         activity.readActivityList();
         System.out.println("Choose activity");
@@ -249,11 +249,13 @@ public class Booking {
         }
     }
 
+    ////Metode som oversætter data om bookinger til String, som kan læses fra filen
     @Override
     public String toString(){
         return getStartTime() + ";" + getEndTime() + ";" + getDate() + ";" + getInstructor() + ";" + getBookingNumber() + ";" + getNumberOfParticipant() + ";" + getActivityName();
     }
 
+    //Metode som skriver bookingerne ind i filen
     public void bookingWriteToFile()throws FileNotFoundException {
 
         PrintStream pss = new PrintStream("Bookings");
@@ -265,6 +267,7 @@ public class Booking {
         }
     }
 
+    //Metode som henter bookingerne fra filen
     public void bookingReadFromFile(){
         File f = new File("Bookings");
         try {
