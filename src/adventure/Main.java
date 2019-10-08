@@ -13,6 +13,16 @@ public class Main {
         //Hovedmenuen instatieres og køres
         Menu menu = new Menu();
 
+
+        Instructor i = new Instructor();
+        i.readInstructorFile();
+        i.createInstructor();
+        i.readInstructorFile();
+        i.updateInstructor();
+        i.readInstructorFile();
+        i.deleteInstructor();
+        i.readInstructorFile();
+
         //Aktiviteterne hentes fra filen
         a.activityReadFromFile();
         //Bookingerne hentes fra filen

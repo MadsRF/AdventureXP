@@ -63,43 +63,41 @@ public class Menu {
                     System.out.println("PRESS 7 - Delete a booking");
                     System.out.println("PRESS 8 - View all bookings");
 
-                    switch (scan.nextInt()) {
-                        case 0:
+                    switch (scan.next()) {
+                        case "0":
                             System.out.println("Loading main menu...");
                             return true;
-                        case 1:
+                        case "1":
                             activity.readActivityList();
                             break;
 
-                        case 2:
+                        case "2":
                             activity.addActivity();
                             break;
 
-                        case 3:
+                        case "3":
                             activity.editActivity();
                             break;
-                        case 4:
+                        case "4":
                             activity.deleteActivity();
                             break;
-                        case 5:
+                        case "5":
                             booking.createBooking();
                             break;
-                        case 6:
+                        case "6":
                             booking.searchBooking();
                             break;
-                        case 7:
+                        case "7":
                             booking.deleteBooking();
                             break;
-                        case 8:
+                        case "8":
                             booking.viewBookingsAsEmployee();
                             break;
 
                         default:
                             System.out.println("Enter a valid number from the menu");
                             break;
-
                     }
-
                 }
             } else {
                 System.out.println("USERNAME OR PASSWORD INCORRECT\nTRY AGAIN");
@@ -122,28 +120,28 @@ public class Menu {
                 System.out.println("PRESS 3 - Search for a booking");
                 System.out.println("PRESS 4 - Delete a booking");
                 System.out.println("PRESS 5 - View all bookings");
-                switch (sc.nextInt()) {
-                    case 0:
+                switch (sc.next()) {
+                    case "0":
                         System.out.println("Loading main menu...");
                         return true;
 
-                    case 1:
+                    case "1":
                         activity.readActivityList();
                         break;
 
-                    case 2:
+                    case "2":
                         booking.createBooking();
                         break;
 
-                    case 3:
+                    case "3":
                         booking.searchBooking();
                         break;
 
-                    case 4:
+                    case "4":
                         booking.deleteBooking();
                         break;
 
-                    case 5:
+                    case "5":
                         booking.viewBookingsAsCustomer();
                         break;
 
