@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+//Bliver aldrig brugt. Vores ide var at bruge den, men vi brugte instructor klassen i stedet.
+
 public class Employee {
 
     //Variabler for employees

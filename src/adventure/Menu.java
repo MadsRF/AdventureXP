@@ -15,6 +15,7 @@ public class Menu {
     private String answer2;
     Activity activity = new Activity();
     Booking booking = new Booking();
+    Instructor instructor = new Instructor();
 
     //Metode til hovedmenuen, som bliver kaldt når main() metoden bliver kørt i Main
     //Vi har lavet en seperat klasse til den for at gøre Main klassen mere overskuelig
@@ -63,6 +64,17 @@ public class Menu {
                     System.out.println("PRESS 7 - Delete a booking");
                     System.out.println("PRESS 8 - View all bookings");
 
+                    System.out.println("\nOPTIONS FOR INSTRUCTORS");
+
+                    System.out.println("PRESS 9 - Create a new instructor");
+                    System.out.println("PRESS 10 - Edit an instructor");
+                    System.out.println("PRESS 11 - Delete an instructor");
+                    System.out.println("PRESS 12 - View all instructors");
+
+
+
+
+
                     switch (scan.next()) {
                         case "0":
                             System.out.println("Loading main menu...");
@@ -93,6 +105,19 @@ public class Menu {
                         case "8":
                             booking.viewBookingsAsEmployee();
                             break;
+                        case "9":
+                            instructor.createInstructor();
+                            break;
+                        case "10":
+                            instructor.updateInstructor();
+                            break;
+                        case "11":
+                            instructor.deleteInstructor();
+                            break;
+                        case "12":
+                            instructor.readInstructorFile();
+                            break;
+
 
                         default:
                             System.out.println("Enter a valid number from the menu");
