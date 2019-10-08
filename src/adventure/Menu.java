@@ -31,12 +31,12 @@ public class Menu {
 
         String choice = sc.next();
 
-        //exit program
+        //Afslutter programmet
         if(choice.equals("0")){
             return false;
         }
 
-        // admin menu
+        // Hovedmenu for admin-brugeren
         else if (choice.equals("1")) {
             //very simple hardcoded "login" page
             System.out.println("USERNAME:");
@@ -130,7 +130,7 @@ public class Menu {
             }
 
         }
-        // customer menu.
+        //Hovedmenu for kunden
         else if (choice.equals("2")) {
             while (true) {
                 System.out.println("\n\nPRESS 0 - For log out");
