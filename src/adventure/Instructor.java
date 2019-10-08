@@ -147,15 +147,15 @@ public class Instructor {
             if (i.getName().toLowerCase().equals(instructorName.toLowerCase())) {
                 System.out.println("test");
                 instructorList.remove(i);
+
+                try {
+                    saveInstructorFile();
+                } catch (Exception e) {
+                    System.out.println("Failed to save instructor to file");
+                }
+                System.out.println("The instructor: " + i.getName() + " was deleted");
+                return true;
             }
-            try {
-                saveInstructorFile();
-            }
-            catch (Exception e) {
-                System.out.println("Failed to save instructor to file");
-            }
-            System.out.println("The instructor: " + i.getName() + " was deleted");
-            return true;
         }
         System.out.println("Couldn't find an activity with the name: " + instructorName);
         return false;
