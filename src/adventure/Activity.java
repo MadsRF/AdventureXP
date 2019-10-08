@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class Activity {
 
     //Variabler for aktiviteter
-
     private String activityName;
     private double price;
     private int requiredAge;
@@ -21,7 +20,6 @@ public class Activity {
 
 
     //Arraylisten activityList og input scannere oprettes
-
     private  static List<Activity> activityList = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
     private Scanner sc1 = new Scanner(System.in);
@@ -38,7 +36,6 @@ public class Activity {
     }
 
     //Getters og setters
-
     public String getActivityName() {
         return activityName;
     }
@@ -80,7 +77,6 @@ public class Activity {
     }
 
     //Metode som opretter en ny aktivitet. Den tjekker først, om aktiviteten findes allerede.
-
     public void addActivity(){
         try {
             System.out.println("You have chosen to add an activity");
@@ -120,7 +116,6 @@ public class Activity {
     }
 
     //Metode som viser aktiviteter, som ikke er booket
-
     public void readActivityList(){
 
         System.out.println("Loading activity list");
@@ -254,7 +249,7 @@ public class Activity {
             }
         }
         catch (Exception e){
-            //who cares
+            System.out.println("File not found.");
         }
     }
 
