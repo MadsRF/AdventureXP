@@ -10,12 +10,13 @@ import java.util.Scanner;
 
 public class Instructor {
 
+    //Variabler for Instructor
     private String name;
     private String speciality;
     private Scanner scan = new Scanner(System.in);
     List<Instructor> instructorList = new ArrayList<>();
 
-
+    //Konstruktører
     public Instructor(String name, String speciality) {
         this.name = name;
         this.speciality = speciality;
@@ -24,6 +25,7 @@ public class Instructor {
     public Instructor() {
     }
 
+    //Getters & setters
     public String getName() {
         return name;
     }
@@ -48,6 +50,7 @@ public class Instructor {
         this.instructorList = instructorList;
     }
 
+    //Metode til at oprette en ny instruktør
     public void createInstructor() {
         try {
             System.out.println("Name?");
@@ -61,6 +64,7 @@ public class Instructor {
         }
     }
 
+    //Metode til at hente alle instruktører fra filen
     public void readInstructorFile(){
         File f = new File("Instructor");
         try {
@@ -82,6 +86,7 @@ public class Instructor {
         }
     }
 
+    //Metode til at skrive alle instruktørerne ind i filen
     public void saveInstructorFile() throws FileNotFoundException {
         PrintStream output = new PrintStream(("Instructor"));
         output.println("");

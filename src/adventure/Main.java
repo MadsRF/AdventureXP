@@ -13,8 +13,12 @@ public class Main {
         //Hovedmenuen instatieres og køres
         Menu menu = new Menu();
 
+        //Aktiviteterne hentes fra filen
         a.activityReadFromFile();
+        //Bookingerne hentes fra filen
         b.bookingReadFromFile();
+
+        //Hovedmenuen vises på konsollen
 
         while(menu.mainMenu()){
         }
