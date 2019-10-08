@@ -13,10 +13,20 @@ public class Main {
         //Hovedmenuen instatieres og køres
         Menu menu = new Menu();
 
+
+        Instructor i = new Instructor();
+        i.readInstructorFile();
+        i.createInstructor();
+        i.readInstructorFile();
+        i.updateInstructor();
+        i.readInstructorFile();
+        i.deleteInstructor();
+        i.readInstructorFile();
+
         a.activityReadFromFile();
         b.bookingReadFromFile();
 
-        while(menu.mainMenu()){
-        }
+        //while(menu.mainMenu()){
+        //}
     }
 }

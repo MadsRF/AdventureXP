@@ -95,10 +95,10 @@ public class Instructor {
 
     public boolean updateInstructor(){
         System.out.println("Type the instructor name");
-        name  = scan.nextLine();
+        String instructorName  = scan.next();
 
         for (Instructor i: instructorList){
-            if(i.getName().toLowerCase().equals(getName().toLowerCase())){
+            if(i.getName().toLowerCase().equals(instructorName.toLowerCase())){
                 System.out.println("Press 1 - Edit name: " + i.getName());
                 System.out.println("Press 2 - Edit speciality: " + i.getSpeciality());
                 System.out.println("Press 3 - Exit back to menu");
@@ -127,7 +127,7 @@ public class Instructor {
                 return true;
             }
         }
-        System.out.println("Couldn't find an instructor with the name: " + name);
+        System.out.println("Couldn't find an instructor with the name: " + instructorName);
         return false;
 
 
@@ -135,10 +135,12 @@ public class Instructor {
 
     public boolean deleteInstructor() {
         System.out.println("Type the instructor name");
-        name = scan.nextLine();
+        String instructorName = scan.next();
 
         for (Instructor i : instructorList) {
-            if (i.getName().toLowerCase().equals(getName().toLowerCase())) {
+
+            if (i.getName().toLowerCase().equals(instructorName.toLowerCase())) {
+                System.out.println("test");
                 instructorList.remove(i);
             }
             try {
@@ -150,7 +152,7 @@ public class Instructor {
             System.out.println("The instructor: " + i.getName() + " was deleted");
             return true;
         }
-        System.out.println("Couldn't find an activity with the name: " + name);
+        System.out.println("Couldn't find an activity with the name: " + instructorName);
         return false;
     }
 }
