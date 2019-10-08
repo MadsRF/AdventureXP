@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
+import java.nio.charset.MalformedInputException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -80,35 +82,39 @@ public class Activity {
     //Metode som opretter en ny aktivitet. Den tjekker først, om aktiviteten findes allerede.
 
     public void addActivity(){
-
-        System.out.println("You have chosen to add an activity");
-        boolean nameCheck = true;
-        while(nameCheck == true){
-            System.out.println("Type in the name of the new activity");
-            activityName = sc.next();
-            nameCheck = false;
-            for (Activity a : getActivityList()) {
-                if (activityName.equals(a.getActivityName())) {
-                    System.out.println("This activity already exists.");
-                    nameCheck = true;
+        try {
+            System.out.println("You have chosen to add an activity");
+            boolean nameCheck = true;
+            while(nameCheck == true){
+                System.out.println("Type in the name of the new activity");
+                activityName = sc.next();
+                nameCheck = false;
+                for (Activity a : getActivityList()) {
+                    if (activityName.equals(a.getActivityName())) {
+                        System.out.println("This activity already exists.");
+                        nameCheck = true;
+                    }
                 }
             }
-        }
-        System.out.println("You have created " + activityName + "\n");
-        System.out.println("Choose a price:");
-        price = sc.nextDouble();
-        System.out.println("Choose a required age: ");
-        requiredAge = sc.nextInt();
-        System.out.println("Write a short description");
-        description = sc1.nextLine();
 
-        activityList.add(new Activity(activityName, price, requiredAge, description));
+            System.out.println("You have created " + activityName + "\n");
+            System.out.println("Choose a price:");
+            price = sc.nextDouble();
+            System.out.println("Choose a required age: ");
+            requiredAge = sc.nextInt();
+            System.out.println("Write a short description");
+            description = sc1.nextLine();
 
-        try {
+            activityList.add(new Activity(activityName, price, requiredAge, description));
+
             activityWriteToFile();
         }
-        catch (Exception e){
-            System.out.println("Failed to save activities to file");
+        catch (FileNotFoundException e){
+            System.out.println("Failed to save activities to file - file not found");
+        }
+        catch (InputMismatchException e){
+            System.out.println("Wrong input, didn't save, try again");
+
         }
 
     }
@@ -126,7 +132,7 @@ public class Activity {
     //Metode som sletter aktiviteter
     public boolean deleteActivity(){
         System.out.println("Type the activity name");
-        String activityName = sc.nextLine();
+        String activityName = sc.next();
         for (Activity activity : activityList){
             if(activity.getActivityName().toLowerCase().equals(activityName.toLowerCase())){
                 activityList.remove(activity);
@@ -149,7 +155,7 @@ public class Activity {
     //Metode som redigerer aktiviteter
     public boolean editActivity(){
         System.out.println("Type the activity name");
-        String activityName = sc.nextLine();
+        String activityName = sc.next();
         for (Activity activity: activityList){
             if(activity.getActivityName().toLowerCase().equals(activityName.toLowerCase())){
                 System.out.println("Press 1 - Edit name: " + activity.getActivityName());
